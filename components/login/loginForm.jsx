@@ -58,6 +58,9 @@ const LoginForm = () => {
         <form className='flex flex-col w-full gap-6' onSubmit={handleSubmit}
         >
             <div className='relative w-full h-full'>
+                <label htmlFor="email" className="sr-only">
+                    Email
+                </label>
                 <input
                     className=" border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 appearance-none leading-tight focus:outline-none focus:shadow-outline p-4 outline-none "
                     id="email"
@@ -65,9 +68,17 @@ const LoginForm = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <span className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30' id='emailSpan'>Email</span>
+                <span
+                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30'
+                    id='emailSpan'
+                >
+                    Email
+                </span>
             </div>
             <div className='relative w-full h-full mb-4'>
+                <label htmlFor="password" className="sr-only">
+                    Password
+                </label>
                 <input
                     className="appearance-none border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline  p-4  outline-none "
                     id="password"
@@ -75,7 +86,12 @@ const LoginForm = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <span className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30 ' id='passwordSpan'>Password</span>
+                <span
+                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30 '
+                    id='passwordSpan'
+                >
+                    Password
+                </span>
             </div>
             <LoginButton />
         </form>
