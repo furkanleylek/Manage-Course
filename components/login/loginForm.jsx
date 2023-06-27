@@ -28,7 +28,7 @@ const LoginForm = () => {
 
         if (emailId && emailSpanId) {
             emailId.addEventListener("focusin", () => {
-                emailSpanId.style.cssText = ' transform:translateX(10px) translateY(-11px); font-size:0.65em; padding:0 10px; opacity:100; border-radius:2px; font-style:italic ; background:white ; color:#F8D442; '
+                emailSpanId.style.cssText = ' transform:translateX(10px) translateY(-11px); font-size:0.65em; padding:0 10px; opacity:100; font-weight:600 ; border-radius:2px; font-style:italic ; background:white ; color:#F8D442; '
                 emailId.style.cssText = 'box-shadow: 0 0 0 2px #F8D442 ;  transition-property: all; transition-duration: 700ms;'
             })
             emailId.addEventListener("focusout", () => {
@@ -40,7 +40,7 @@ const LoginForm = () => {
         }
         if (passwordId && passwordSpanId) {
             passwordId.addEventListener("focusin", () => {
-                passwordSpanId.style.cssText = ' transform:translateX(10px) translateY(-11px); font-size:0.65em; padding:0 10px; background:white ; color:#F8D442; opacity:100; border-radius:2px; font-style:italic ;'
+                passwordSpanId.style.cssText = ' transform:translateX(10px) translateY(-11px); font-size:0.65em; padding:0 10px; background:white ; color:#F8D442; opacity:100; font-weight:600 ;  border-radius:2px; font-style:italic ;'
                 passwordId.style.cssText = 'box-shadow: 0 0 0 2px #F8D442 ;  transition-property: all; transition-duration: 700ms;'
             })
             passwordId.addEventListener("focusout", () => {
@@ -62,14 +62,14 @@ const LoginForm = () => {
                     Email
                 </label>
                 <input
-                    className=" border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 appearance-none leading-tight focus:outline-none focus:shadow-outline p-4 outline-none "
+                    className=" border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-sm font-semibold appearance-none leading-tight focus:outline-none focus:shadow-outline p-4 outline-none "
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <span
-                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30'
+                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-60'
                     id='emailSpan'
                 >
                     Email
@@ -80,14 +80,14 @@ const LoginForm = () => {
                     Password
                 </label>
                 <input
-                    className="appearance-none border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline  p-4  outline-none "
+                    className="appearance-none border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-sm font-semibold leading-tight focus:outline-none focus:shadow-outline  p-4  outline-none "
                     id="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <span
-                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-30 '
+                    className='absolute py-[10px] px-[14px] top-0 left-0 pointer-events-none text-[12px] text-black uppercase transition-all duration-300 opacity-60 '
                     id='passwordSpan'
                 >
                     Password

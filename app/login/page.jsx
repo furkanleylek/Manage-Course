@@ -26,7 +26,7 @@ export default function LoginPage() {
                 </div>
                 <LoginForm />
                 <Paragraph>
-                    Forgot your password ? <span className='text-third cursor-pointer hover:underline hover:underline-offset-2'>Reset Password</span>
+                    Forgot your password ? <span className='text-third font-semibold cursor-pointer hover:underline hover:underline-offset-2'>Reset Password</span>
                 </Paragraph>
             </div>
         </main>
