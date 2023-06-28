@@ -34,7 +34,7 @@ const InfoCard = () => {
                                     width={50}
                                     height={50}
                                     alt='image'
-                                    className='rounded-full border-[3px] border-third ml-[-25px] '
+                                    className='rounded-full object-cover border-[3px] border-third ml-[-25px] '
                                 />
                             )
                         })
