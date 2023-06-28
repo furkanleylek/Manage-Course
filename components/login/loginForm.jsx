@@ -62,7 +62,7 @@ const LoginForm = () => {
                     Email
                 </label>
                 <input
-                    className=" border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-sm font-semibold appearance-none leading-tight focus:outline-none focus:shadow-outline p-4 outline-none "
+                    className=" border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-[15px] font-semibold appearance-none leading-tight focus:outline-none focus:shadow-outline p-4 outline-none "
                     id="email"
                     type="email"
                     value={email}
@@ -80,7 +80,7 @@ const LoginForm = () => {
                     Password
                 </label>
                 <input
-                    className="appearance-none border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-sm font-semibold leading-tight focus:outline-none focus:shadow-outline  p-4  outline-none "
+                    className="appearance-none border-[1px] rounded w-full py-2 px-3 text-gray-700 mb-3 text-[15px] font-semibold leading-tight focus:outline-none focus:shadow-outline  p-4  outline-none "
                     id="password"
                     type="password"
                     value={password}

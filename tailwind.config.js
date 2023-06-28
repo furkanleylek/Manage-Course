@@ -19,6 +19,7 @@ module.exports = {
         secondaryBg: '#292E36',
         third: '#FEAF00',
         stroke: '#F8D442',
+        hover: '#FEAF00',
       },
     },
   },

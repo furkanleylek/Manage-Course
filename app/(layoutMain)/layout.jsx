@@ -15,8 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={classNames('flex flex-col ', montserrat.className)}>
-        {children}
+      <body className={classNames('flex bg-[#FDFDFD]', montserrat.className)}>
+        <Sidebar />
+        <div className='md:container border-2 w-full mx-auto p-4 md:px-12 xl:px-16 min-h-screen '>
+          {children}
+        </div>
       </body>
     </html>
   )
