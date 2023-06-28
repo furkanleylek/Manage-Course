@@ -38,7 +38,7 @@ const contentLinks = [
 
 const SidebarContent = () => {
     return (
-        <div className='flex flex-col gap-6 justify-between h-full  w-full '>
+        <div className='flex flex-col justify-between gap-6 h-full w-full '>
             <nav className='flex flex-col items-start gap-3 w-full'>
                 {
                     contentLinks.map((element, index) => {

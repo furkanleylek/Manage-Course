@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import { Montserrat } from 'next/font/google'
 import classNames from 'classnames'
 import Sidebar from '@/components/sidebar/sidebar'
+import NotificationBar from '@/components/home/notificationBar'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
@@ -15,10 +16,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={classNames('flex bg-[#FDFDFD]', montserrat.className)}>
+      <body className={classNames('flex bg-[#F2EAE1]', montserrat.className)}>
         <Sidebar />
-        <div className='md:container border-2 w-full mx-auto p-4 md:px-12 xl:px-16 min-h-screen '>
-          {children}
+        <div className='flex flex-col w-full h-full md:rounded-l-[40px] bg-[#FDFDFD] shadow-md min-h-screen'>
+          <NotificationBar />  {/*background rengini farklı yapabilmek için, genel layoutdan dısarıda tanımlandı*/}
+          <div className='md:container w-full h-full mx-auto p-4 md:px-12 xl:px-16'>
+            {children}
+          </div>
         </div>
       </body>
     </html>
