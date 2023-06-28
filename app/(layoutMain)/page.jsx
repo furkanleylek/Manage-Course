@@ -4,7 +4,10 @@ import DashboardCard from "@/components/dashboard/allDashboardCards"
 import InfoCard from "@/components/dashboard/infoCard"
 import Chart from "@/components/dashboard/chart"
 import AllTopSales from "@/components/dashboard/topSales"
+
+
 export default function Home() {
+
   return (
     <main className="flex flex-col justify-between h-full gap-12 py-4 md:py-8">
       <TitleH1>

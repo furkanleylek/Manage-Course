@@ -1,8 +1,8 @@
-import React from 'react'
-import Image from 'next/image'
-import { BsThreeDotsVertical } from 'react-icons/bs'
-import TitleH3 from '../layouts/h3'
-import { MdOutlineArrowRight } from 'react-icons/md'
+'use client'
+import React, { useState } from 'react'
+import SingleTopSale from './singleTopSale'
+import { MdOutlineArrowRight, MdOutlineArrowDropDown } from 'react-icons/md'
+import { motion, AnimatePresence } from 'framer-motion'
 const topSalesData = [
     {
         name: 'Nicholas Patrick',
@@ -27,116 +27,62 @@ const topSalesData = [
     }
 ]
 
-// const SingleTopSale = ({ name, payment, productsAmount, imageSource, rank }) => {
-//     return (
-//         <tbody className='w-full text-[12px] lg:text-base'>
-//             <tr className='border-b-[1px] px-20 rounded-[20px] '>
-//                 <td>
-//                     <Image
-//                         src={imageSource}
-//                         width={35}
-//                         height={35}
-//                         alt={name}
-//                         className='object-cover rounded-full'
-//                     />
-//                 </td>
-//                 <td className='py-6'>
-//                     <h5>{name}</h5>
-//                 </td>
-//                 <td>
-//                     <p className='font-bold'>$ {payment}</p>
-//                 </td>
-//                 <td>
-//                     <p>{productsAmount}</p>
-//                 </td>
-//                 <td>
-//                     <span
-//                         className={`
-//                     ${rank === '+Gold' ? 'text-orange-400' : ''}
-//                     ${rank === '+Silver' ? 'text-green-400' : ''}
-//                     ${rank === '+Bronz' ? 'text-neutral-400' : ''}
-//                   `}
-//                     >
-//                         {rank}
-//                     </span>
-//                 </td>
-//                 <td>
-//                     <button>
-//                         <BsThreeDotsVertical />
-//                     </button>
-//                 </td>
-//             </tr>
-//         </tbody>
-//     )
-// }
-
-// const AllTopSales = () => {
-//     return (
-//         <table className='w-full'>
-//             {
-//                 topSalesData.map((element, index) => {
-//                     return <SingleTopSale key={index} name={element.name} payment={element.payment} productsAmount={element.productsAmount} imageSource={element.imageSource} rank={element.rank} />
-//                 })
-//             }
-//         </table>
-//     )
-// }
-
-// export default AllTopSales
-
-
-
-
-
-
-const SingleTopSale = ({ name, payment, productsAmount, imageSource, rank }) => {
-    return (
-        <div className='flex items-center text-secondary text-[12px] lg:text-sm justify-between gap-2 md:gap-4 xl:gap-20 border-[1px] p-2 lg:py-4 xl:px-12 rounded-[20px] shadow-sm'>
-            <Image
-                src={imageSource}
-                width={50}
-                height={50}
-                alt={name}
-                className='object-cover rounded-full'
-            />
-            <h5 className='w-full'> {/* using with w-full in every items , we can use like a table in flex*/}
-                {name}
-            </h5>
-            <p className='font-bold w-full text-primary'> {/* using with w-full in every items , we can use like a table in flex*/}
-                $ {payment}
-            </p>
-            <p className='w-full'> {/* using with w-full in every items , we can use like a table in flex*/}
-                {productsAmount} Course
-            </p>
-            <span
-                className={`
-                    ${rank === '+Gold' ? 'text-orange-600' : ''}
-                    ${rank === '+Silver' ? 'text-green-600' : ''}
-                    ${rank === '+Bronz' ? 'text-neutral-600' : ''}
-                    w-full hidden lg:flex 
-                    `}
-            >
-                {rank}
-            </span>
-            <button className=''>
-                <BsThreeDotsVertical />
-            </button>
-        </div>
-    )
-}
-
 const AllTopSales = () => {
+
+    const [showTopSalesData, setShowTopSalesData] = useState(true)
+
+    const handleClick = () => {
+        setShowTopSalesData(!showTopSalesData);
+    };
+
+
+    // with framer-motion library , we can animate the Top Sales Representative button and datas
     return (
         <div className='flex flex-col gap-4'>
-            <TitleH3 className={'flex items-center gap-1'}>
-                <MdOutlineArrowRight className='text-xl' />
+            <motion.button
+                className='flex items-center gap-1 font-bold text-base p-1 max-w-[260px]'
+                onClick={handleClick}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+            >
+                {showTopSalesData ? (
+                    <motion.span
+                        initial={{ opacity: 0, rotate: -90 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        exit={{ opacity: 0, rotate: -90 }}
+                    >
+                        <MdOutlineArrowDropDown className='text-xl' />
+                    </motion.span>
+                ) : (
+                    <motion.span
+                        initial={{ opacity: 0, rotate: 0 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        exit={{ opacity: 0, rotate: 0 }}
+                    >
+                        <MdOutlineArrowRight className='text-xl' />
+                    </motion.span>
+                )}
                 Top Sales Representative
-            </TitleH3>
-            {
-                topSalesData.map((element, index) => {
-                    return <SingleTopSale key={index} name={element.name} payment={element.payment} productsAmount={element.productsAmount} imageSource={element.imageSource} rank={element.rank} />
-                })
-            }
+            </motion.button>
+            <AnimatePresence>
+                {
+                    showTopSalesData && (
+                        <motion.div
+                            className='flex flex-col gap-4 '
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                        >
+                            {
+                                topSalesData.map((element, index) => {
+                                    return <SingleTopSale key={index} name={element.name} payment={element.payment} productsAmount={element.productsAmount} imageSource={element.imageSource} rank={element.rank} />
+                                })
+                            }
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence>
         </div>
     )
 }
