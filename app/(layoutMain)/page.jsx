@@ -5,7 +5,7 @@ import InfoCard from "@/components/home/infoCard"
 import Chart from "@/components/home/chart"
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between border-2 h-full gap-20 py-4 md:py-8">
+    <main className="flex flex-col justify-between h-full gap-20 py-4 md:py-8">
       <TitleH1>
         Dashboard
       </TitleH1>
