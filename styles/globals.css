@@ -22,3 +22,17 @@
 }
 
 /* BUTTONN EFFECT */
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  /* veya istediğiniz bir genişlik */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c1bfbf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bebebe;
+}

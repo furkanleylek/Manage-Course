@@ -4,13 +4,13 @@ import UserProfile from './userProfile'
 import SidebarContent from './content'
 const Sidebar = () => {
     return (
-        <div className='hidden md:flex flex-col items-center justify-center gap-12 px-4 min-w-[270px] py-4 bg-[#F2EAE1]'>
-            <TitleH4>
+        <div className='hidden md:flex flex-col items-center gap-8 px-4 min-w-[270px] py-4 bg-[#F2EAE1] fixed left-0 h-full overflow-y-auto'>
+            <TitleH4 >
                 MANAGE COURSES
             </TitleH4>
             <UserProfile />
             <SidebarContent />
-        </div>
+        </div >
     )
 }
 

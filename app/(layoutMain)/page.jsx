@@ -15,7 +15,7 @@ export default function Home() {
       </TitleH1>
       <AllTopSales />
       <DashboardCard />
-      <div className="flex flex-col lg:flex-row w-full  h-full items-center justify-between">
+      <div className="flex flex-col lg:flex-row gap-6 w-full h-full lg:h-64  items-center justify-between ">
         <Chart />
         <InfoCard />
       </div>
