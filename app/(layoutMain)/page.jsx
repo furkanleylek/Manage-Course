@@ -9,7 +9,7 @@ import AllTopSales from "@/components/dashboard/topSales"
 export default function Home() {
 
   return (
-    <main className="flex flex-col justify-between h-full gap-12 py-4 md:py-8">
+    <main className="flex flex-col justify-between h-full gap-10 py-4">
       <TitleH1>
         Dashboard
       </TitleH1>
