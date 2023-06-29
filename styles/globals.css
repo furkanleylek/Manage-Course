@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BUTTONN EFFECT */
+
+.hoverEffect:hover::before {
+  transform: scaleX(1);
+}
+
+.hoverEffect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  transition: all 0.475s;
+}
+
+/* BUTTONN EFFECT */
+
+
+::-webkit-scrollbar {
+  width: 11px;
+  background-color: #F2EAE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(253, 208, 208);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #F2EAE1;
+}
