@@ -16,6 +16,7 @@ const LoginButton = () => {
             SIGN IN
         </motion.button>
     )
+
 }
 
 export default LoginButton
