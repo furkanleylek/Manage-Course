@@ -71,7 +71,7 @@ const Menu = () => {
                             </Link>
                             <AiOutlineClose onClick={() => setIsMenuOpen(false)} size={24} className='hover:scale-105 text-white dark:text-black bg-primary p-1 rounded-full cursor-pointer' />
                         </div>
-                        <div className='flex flex-col gap-6 h-full justify-between'>
+                        <div className='flex flex-col gap-4 py-6 h-full justify-between'>
                             {
                                 menuContents.map((element, index) => {
                                     return (
@@ -79,7 +79,7 @@ const Menu = () => {
                                             href={element.linkHref}
                                             key={index}
                                             onClick={() => setIsMenuOpen(false)}
-                                            className='flex gap-10 items-center '
+                                            className='flex gap-10 items-center  p-2 '
                                         >
                                             <element.Icon key={index} size={26} className='dark:text-white' />
                                             <h5 className='text-base text-primary'>
@@ -90,8 +90,8 @@ const Menu = () => {
                                 })
                             }
                             <button
-                                className='flex items-center gap-10'
-                                onClick={() => { deleteCookie('token'), deleteCookie('username'), router.push('/login') }} // route to login page , when cookies deleted
+                                className='flex items-center gap-10 p-2'
+                                onClick={() => { deleteCookie('token'), deleteCookie('username'), router.push('/login'), setIsMenuOpen(false) }} // route to login page , when cookies deleted
                             >
                                 <FiLogOut size={26} className='dark:text-white' />
                                 <h5 className='text-base text-primary'>
