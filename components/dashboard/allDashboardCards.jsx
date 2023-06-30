@@ -35,10 +35,7 @@ const dashboardData = [
     },
 ]
 
-
-
 const DashboardCard = () => {
-    console.log("sa")
     return (
         <div
             className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6'

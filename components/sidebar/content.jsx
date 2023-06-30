@@ -1,6 +1,6 @@
 import React from 'react'
 import Logout from './logout'
-import SingleLink from './singleLink'
+import SingleLink from './single-link'
 
 const contentLinks = [
     {

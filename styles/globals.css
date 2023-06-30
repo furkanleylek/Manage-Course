@@ -2,6 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html,
+body {
+  height: 100%;
+}
+
+@layer base {
+  :root {
+    --background: 0, 0%, 100%;
+    --foreground: 32, 40%, 92%;
+
+    --muted: #D2F6F6;
+    --muted-foreground: #D7A634;
+
+    --popover: #FFFFFF;
+    --popover-foreground: #DE0D08;
+
+    --card: #FFFFFF;
+    --card-foreground: #DE0D08;
+
+    --border: #D69E8A;
+    --input: #D69E8A;
+
+    --primary: 0, 0%, 0%;
+    --primary-foreground: 41, 100%, 50%;
+
+    --secondary: 0, 0%, 42%;
+    --secondary-foreground: 217, 14%, 19%;
+
+    --stroke: #F8D442;
+    --stroke-foreground: ;
+
+    --destructive: #0056F4;
+    --destructive-foreground: #D2F6F6;
+
+    --ring: #D7CCA7;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0, 0%, 0%;
+    --foreground: 0, 0%, 0%;
+
+    --muted: #DAD00D;
+    --muted-foreground: #D7CCA7;
+
+    --popover: #DE0D08;
+    --popover-foreground: #D2F6F6;
+
+    --card: #DE0D08;
+    --card-foreground: #D2F6F6;
+
+    --border: #DAD00D;
+    --input: #DAD00D;
+
+    --primary: #D2F6F6;
+    --primary-foreground: #DE0D08;
+
+    --secondary: #DAD00D;
+    --secondary-foreground: #D2F6F6;
+
+    --accent: #DAD00D;
+    --accent-foreground: ;
+
+    --destructive: #009FF6;
+    --destructive-foreground: #0056F4;
+
+    --ring: #DAD00D;
+  }
+}
+
 /* BUTTONN EFFECT */
 
 .hoverEffect:hover::before {
@@ -24,6 +96,7 @@
 /* BUTTONN EFFECT */
 
 
+/* SCROLL BAR*/
 ::-webkit-scrollbar {
   width: 11px;
   background-color: #F2EAE1;
