@@ -43,7 +43,7 @@ const SingleLink = ({ linkHref, linkTitle }) => {
 
     return (
 
-        <div className='hoverEffect h-12 bg-auto w-full overflow-hidden relative before:bg-hover rounded-md'>
+        <div className='hoverEffect h-12 bg-auto w-full overflow-hidden relative before:bg-hover rounded-md text-secondary'>
             <Link
                 href={linkHref}
                 className={`${pathName === linkHref ? 'bg-third' : 'bg-transparent'} flex items-center justify-start gap-4 w-full h-full pl-[74px] z-10 relative`}
