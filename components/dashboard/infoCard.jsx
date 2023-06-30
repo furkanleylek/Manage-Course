@@ -15,7 +15,7 @@ const photos = [
 
 const InfoCard = () => {
     return (
-        <div className="flex flex-col gap-10 border-[1px] py-4 px-8 w-full h-full rounded-[20px] bg-white relative text-secondary font-bold shadow-xl z-10">
+        <div className="flex flex-col gap-10 border-[1px] border-border py-4 px-8 w-full h-full rounded-[20px] bg-card relative text-secondary font-bold shadow-xl z-10">
             <div className='flex w-full items-center justify-between h-full '>
                 <div className='flex flex-col gap-1 h-full'>
                     <h5 className='text-[12px]'>

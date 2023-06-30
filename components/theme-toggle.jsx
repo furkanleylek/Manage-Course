@@ -12,7 +12,7 @@ const ThemeToggle = () => {
         <button>
             {currentTheme === "dark" ? (
                 <FaSun
-                    size={20}
+                    size={18}
                     className="cursor-pointer text-yellow-400 hover:scale-[1.02]"
                     onClick={() => {
                         setTheme("light")
@@ -20,7 +20,7 @@ const ThemeToggle = () => {
                 />
             ) : (
                 <FaMoon
-                    size={20}
+                    size={18}
                     className="cursor-pointer text-slate-700 hover:scale-[1.02]"
                     onClick={() => {
                         setTheme("dark")

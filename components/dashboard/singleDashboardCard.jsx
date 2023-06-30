@@ -3,7 +3,7 @@ import { HiMiniArrowDownLeft, HiMiniArrowUpRight } from 'react-icons/hi2'
 
 const SingleDashboardCard = ({ title, numberData, increase, increaseAmount, Icon }) => {
     return (
-        <div className="flex items-center text-secondary justify-between border-[1px] py-4 px-6 rounded-[20px] shadow-md ">
+        <div className="flex items-center text-secondary justify-between border-[1px] border-border py-4 px-6 rounded-[20px] shadow-md ">
 
 
             <div className='flex flex-col gap-4'>
@@ -25,8 +25,8 @@ const SingleDashboardCard = ({ title, numberData, increase, increaseAmount, Icon
                 </div>
             </div>
             <div className='flex flex-col h-full items-end justify-between'>
-                <Icon className="text-3xl text-gray-700" /> {/* Icon bileşenini kullanın */}
-                <span className='underline text-[12px] underline-offset-2 text-purple-600 cursor-pointer'>
+                <Icon className="text-3xl text-secondary" /> {/* Icon bileşenini kullanın */}
+                <span className='underline text-[12px] underline-offset-2 text-purple-600 dark:text-purple-300 cursor-pointer'>
                     View Report
                 </span>
             </div>

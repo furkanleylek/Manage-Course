@@ -5,7 +5,7 @@ import TitleH3 from '../layouts/h3'
 
 const SingleTopSale = ({ name, payment, productsAmount, imageSource, rank }) => {
     return (
-        <div className='flex items-center text-secondary text-[12px] lg:text-sm justify-between gap-2 md:gap-4 xl:gap-20 border-[1px] p-2 lg:py-4 xl:px-12 rounded-[20px] shadow-sm'>
+        <div className='flex items-center text-secondary text-[12px] lg:text-sm justify-between gap-2 md:gap-4 xl:gap-20 border-[1px] border-border p-2 lg:py-4 xl:px-12 rounded-[20px] shadow-sm'>
             <Image
                 src={imageSource}
                 width={50}
@@ -24,7 +24,7 @@ const SingleTopSale = ({ name, payment, productsAmount, imageSource, rank }) => 
             </p>
             <span
                 className={`
-                    ${rank === '+Gold' ? 'text-orange-600' : ''}
+                    ${rank === '+Gold' ? 'text-yellow-400' : ''}
                     ${rank === '+Silver' ? 'text-green-600' : ''}
                     ${rank === '+Bronz' ? 'text-neutral-600' : ''}
                     w-full hidden lg:flex 
