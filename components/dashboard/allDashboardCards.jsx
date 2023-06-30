@@ -2,8 +2,9 @@ import React from 'react'
 import { FaRegUser } from 'react-icons/fa'
 import { BsBookmark } from 'react-icons/bs'
 import { AiOutlineDollarCircle } from 'react-icons/ai'
-import { SlGraduation } from 'react-icons/sl'
 import SingleDashboardCard from './singleDashboardCard'
+import { SlGraduation } from 'react-icons/sl'
+
 const dashboardData = [
     {
         title: 'Students',
@@ -47,9 +48,9 @@ const DashboardCard = () => {
                             key={index}
                             title={element.title}
                             numberData={element.numberData}
-                            Icon={element.Icon}
                             increase={element.increase}
                             increaseAmount={element.increaseAmount}
+                            Icon={element.Icon}
                         />
                     )
                 })

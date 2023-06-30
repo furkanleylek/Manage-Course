@@ -27,7 +27,7 @@ body {
 
     --card: #FFFFFF;
 
-    --border: #DCDCD7;
+    --border: #E1E1DC;
 
   }
 
@@ -45,11 +45,11 @@ body {
 
     --hover: #FEAF00;
 
-    --card: #FFFFFF;
+    --card: #222222;
 
     --border: #323231;
 
-    --bar: #050504;
+    --bar: #1C1C1B;
 
   }
 }
@@ -80,7 +80,6 @@ body {
 
 ::-webkit-scrollbar {
   width: 11px;
-  background-color: #F2EAE1;
 }
 
 ::-webkit-scrollbar-thumb {

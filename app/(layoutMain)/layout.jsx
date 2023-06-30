@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
       <body className={classNames('flex flex-col md:flex-row bg-foreground md:pl-[270px] overflow-x-hidden w-full h-auto overflow-y-scroll', montserrat.className)}> {/* md:pl-72 for fixed sidebar */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
           enableSystem
         >
           <Sidebar />

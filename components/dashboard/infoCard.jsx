@@ -39,7 +39,7 @@ const InfoCard = () => {
                             )
                         })
                     }
-                    <span className='rounded-full z-[-10] bg-gradient-to-r from-third to-white p-3 ml-[-25px]'>
+                    <span className='rounded-full z-[-10] bg-gradient-to-r from-third to-white dark:text-gray-500 p-3 ml-[-25px]'>
                         +4
                     </span>
                 </div>
@@ -71,7 +71,7 @@ const InfoCard = () => {
                 src="/infocard/bgstyle.svg"
                 alt="Image"
                 fill
-                className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50"
+                className="absolute inset-0 w-full h-full rounded-[20px] object-cover mix-blend-multiply opacity-50"
             />
         </div>
     )
