@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import { FiLogOut } from 'react-icons/fi'

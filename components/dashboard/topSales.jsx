@@ -40,7 +40,7 @@ const AllTopSales = () => {
     return (
         <div className='flex flex-col gap-4'>
             <motion.button
-                className='flex items-center gap-1 font-bold text-base p-1 max-w-[260px]'
+                className='flex items-center gap-1 font-bold text-base max-w-[260px]'
                 onClick={handleClick}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}

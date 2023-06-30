@@ -15,13 +15,13 @@ const photos = [
 
 const InfoCard = () => {
     return (
-        <div className="flex flex-col gap-10 border-[1px] border-border py-4 px-8 w-full h-full rounded-[20px] bg-card relative text-secondary font-bold shadow-xl z-10">
+        <div className="flex flex-col gap-10 border-[1px] border-border py-4 px-4 md:px-8 w-full h-full rounded-[20px] bg-card relative text-secondary font-bold shadow-xl z-10">
             <div className='flex w-full items-center justify-between h-full '>
                 <div className='flex flex-col gap-1 h-full'>
                     <h5 className='text-[12px]'>
                         Sales team target
                     </h5>
-                    <span className='font-bold text-3xl text-third'>82%</span>
+                    <span className='font-bold text-2xl md:text-3xl text-third'>82%</span>
                     <span className='text-[12px]'>Achieved</span>
                 </div>
                 <div className='flex items-center gap-2 h-full'>
@@ -49,7 +49,7 @@ const InfoCard = () => {
                     <h5 className='text-[12px]'>
                         Cleared Qeueu
                     </h5>
-                    <span className='text-3xl font-bold  text-third'>
+                    <span className='text-2xl md:text-3xl font-bold  text-third'>
                         1.4k
                     </span>
                     <div className='flex items-center gap-3'>
