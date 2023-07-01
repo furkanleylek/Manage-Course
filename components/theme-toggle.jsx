@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { FaSun, FaMoon } from 'react-icons/fa';
-
+import IconButton from "./layouts/icon-button";
 const ThemeToggle = () => {
 
     const [mounted, setMounted] = useState(false)
@@ -19,7 +19,7 @@ const ThemeToggle = () => {
     const currentTheme = theme === "system" ? systemTheme : theme
 
     return (
-        <button>
+        <IconButton>
             {currentTheme === "dark" ? (
                 <FaSun
                     size={18}
@@ -37,7 +37,7 @@ const ThemeToggle = () => {
                     }}
                 />
             )}
-        </button>
+        </IconButton>
     )
 }
 

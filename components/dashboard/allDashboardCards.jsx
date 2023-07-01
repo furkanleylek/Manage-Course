@@ -39,7 +39,7 @@ const dashboardData = [
 const DashboardCard = () => {
     return (
         <div
-            className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6'
+            className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6'
         >
             {
                 dashboardData.map((element, index) => {

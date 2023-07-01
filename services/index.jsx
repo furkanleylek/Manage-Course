@@ -1,13 +1,10 @@
-const BASE_URL = "https://api.giphy.com"
-const APIKEY = "qQLlc0Uw4J2FAjEDGziI9XGAdFVtUz8c"
 
-async function fetchData(path, limit = "", rating = "", { query = "" } = {}) {
+export async function fetchAllUsers() {
     try {
-        const res = await fetch(
-            `${BASE_URL}${path}?api_key=${APIKEY}${limit}${rating}${query}`
-        );
-        return res.json();
+        const res = await fetch('https://dummyjson.com/users?limit=6')
+        const data = await res.json()
+        return data.users
     } catch (error) {
-        throw new Error(error);
+        throw new Error(error)
     }
 }
