@@ -12,17 +12,18 @@ const AllStudents = ({ allStudentsData }) => {
     useEffect(() => {
         setAllStudents(() => allStudentsData)  // with this props way we can fetch data in server 
     }, [])
-
+    console.log(allStudents)
     return (
         <div className='overflow-x-auto rounded-xl  '>
-            <table className='w-full text-xs lg:text-sm text-left text-secondary'>
+            <table className='w-full text-xs text-left text-secondary'>
                 <colgroup>
-                    <col style={{ width: 'auto' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: 'auto' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '13%' }} />
+                    <col style={{ width: '15%' }} />
+                    <col style={{ width: '17%' }} />
+                    <col style={{ width: '17%' }} />
+                    <col style={{ width: '15%' }} />
+                    <col style={{ width: '13%' }} />
                 </colgroup>
                 <thead className='text-xs text-primary uppercase bg-foreground'>
                     <tr>
@@ -31,6 +32,7 @@ const AllStudents = ({ allStudentsData }) => {
                         <th scope='col' className='py-4' >Lastname</th>
                         <th scope='col' className='py-4' >Phone</th>
                         <th scope='col' className='py-4' >Email</th>
+                        <th scope='col' className='py-4' >Company</th>
                         <th scope="col" className="px-4 py-3">
                             <span className="sr-only">Actions</span>
                         </th>
@@ -54,6 +56,7 @@ const AllStudents = ({ allStudentsData }) => {
                                     <td>{student.lastName}</td>
                                     <td>{student.phone}</td>
                                     <td>{student.email}</td>
+                                    <td>{student.company.name}</td>
                                     <td>
                                         <div className='flex items-center gap-4'>
                                             <Delete deletedId={student.id} />
@@ -63,7 +66,7 @@ const AllStudents = ({ allStudentsData }) => {
                                 </tr>
                             ) : (
                                 <tr className='border-b border-border'>
-                                    <td colSpan='6'>
+                                    <td colSpan='8'>
                                         <StudentForm student={student} updatedId={student.id} />
                                     </td>
                                 </tr>
