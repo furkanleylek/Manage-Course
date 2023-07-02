@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
 import { AiOutlineEdit } from 'react-icons/ai'
-import IconButton from '../ui/icon-button'
-import { useManageCourseContext } from '../context'
+import IconButton from '../../ui/icon-button'
+import { useManageCourseContext } from '../../context'
 
 const Update = ({ updatedId }) => {
 

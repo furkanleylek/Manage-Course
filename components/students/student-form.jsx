@@ -2,24 +2,38 @@
 import React, { useState } from 'react'
 import { useManageCourseContext } from '../context'
 import Image from 'next/image'
-import { MdSaveAs } from 'react-icons/md'
 import IconButton from '../ui/icon-button'
 import { TiTick } from 'react-icons/ti'
 import { IoClose } from 'react-icons/io5'
 const StudentForm = ({ updatedId, student }) => {
 
-    const { allStudents, setAllStudents } = useManageCourseContext()
+    const { allStudents, setAllStudents, addStudent, setAddStudent } = useManageCourseContext()
 
-    const [formData, setFormData] = useState({ // ilk olarak gösterilen değerleri önceki değerleri olarak ayarlıyoruz . 
-        firstName: student.firstName,
-        lastName: student.lastName,
-        city: student.address.city,
-        phone: student.phone,
-        email: student.email,
-        company: student.company.name
-    })
+    const [formData, setFormData] = useState(() => {
+        const defaultFormData = {                                   // Eğer yeni bir student oluşturulmak istenirse , state değerlerini boş string olarak ayarlıyoruz . 
+            firstName: '',
+            lastName: '',
+            city: '',
+            phone: '',
+            email: '',
+            company: '',
+            image: '/avatar.png'
+        };
 
-    const handleChange = (e) => {               // kullanıcı girişi ile state degisikligini kontrol eder
+        if (student) {                                               // eğer student var ise yani update isteği yapılmış ise ,
+            defaultFormData.firstName = student.firstName || '';     // ilk olarak gösterilen değerleri önceki değerleri olarak ayarlıyoruz . 
+            defaultFormData.lastName = student.lastName || '';
+            defaultFormData.city = student.address?.city || '';
+            defaultFormData.phone = student.phone || '';
+            defaultFormData.email = student.email || '';
+            defaultFormData.company = student.company?.name || '';
+            defaultFormData.image = student.image || '';
+        }
+
+        return defaultFormData;
+    });
+
+    const handleChange = (e) => {                           // kullanıcı girişi ile state degisikligini kontrol eder
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -35,20 +49,21 @@ const StudentForm = ({ updatedId, student }) => {
         { key: 'company', label: 'Company', type: 'text' },
     ];
 
-    const closeEditForm = (updatedId) => {        // isUpdate değerini false yaparak , edit form kısmını kapatıyoruz  
+    const closeEditForm = (updatedId) => {                  // isUpdate değerini false yaparak , edit form kısmını kapatıyoruz  
         setAllStudents(
             allStudents.map((student) => {
                 return student.id == updatedId ? { ...student, isUpdate: false } : student
             })
         )
+        setAddStudent(false)                                // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
     }
 
     const updateEditForm = (updatedId) => {
         setAllStudents(
             allStudents.map((student) => {
                 return (
-                    student.id == updatedId          // önceki degerlerini state değerleri ile degistiriyoruz.
-                        ?                            // önceki değerleri zaten state içerisinde , eğer degistirilmemisse önceki değerleri geçerli kalır . 
+                    student.id == updatedId                 // önceki degerlerini state değerleri ile degistiriyoruz.
+                        ?                                   // önceki değerleri zaten state içerisinde , eğer degistirilmemisse önceki değerleri geçerli kalır . 
                         {
                             ...student,
                             firstName: formData.firstName,
@@ -68,10 +83,29 @@ const StudentForm = ({ updatedId, student }) => {
         )
     }
 
+    const addNewStudent = () => {                           // Mevcut student'ların tutuldugu state'e yeni bir student ekliyoruz . 
+        setAllStudents(oldArray => [
+            {
+                id: Math.random(),
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                phone: formData.phone,
+                email: formData.email,
+                image: formData.image,
+                company: {
+                    name: formData.company,
+                },
+                isUpdate: false
+            },
+            ...oldArray
+        ])
+        setAddStudent(false)                                // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
+    }
+
     return (
 
         <form className='w-full text-secondary'>
-            <table className='w-full text-xs text-left text-secondary bg-foreground'>
+            <table className='w-full text-xs  text-left text-secondary bg-foreground'>  {/* main table ile aynı sutün hizasında olabilmesi için , tekrardan table tanımlanması yapıldı */}
                 <colgroup>
                     <col style={{ width: '10%' }} />
                     <col style={{ width: '13%' }} />
@@ -85,11 +119,11 @@ const StudentForm = ({ updatedId, student }) => {
                     <tr >
                         <td className='py-4'>
                             <Image
-                                src={student.image}
+                                src={formData.image}
                                 width={35}
                                 height={35}
-                                alt={`${student.firstName} img`}
-                                className='object-cover'
+                                alt={`${formData.firstName} img`}
+                                className='object-cover rounded-full ml-2'
                             />
                         </td>
                         {formFields.map((field) => (
@@ -100,6 +134,8 @@ const StudentForm = ({ updatedId, student }) => {
                                 <input
                                     type={field.type}
                                     name={field.key}
+                                    placeholder={field.label}
+                                    id={field.key}
                                     value={formData[field.key]}
                                     onChange={handleChange}
                                     className='ml-[-8px] px-2 py-2 font-semibold w-32 bg-transparent border border-zinc-300 dark:border-border text-secondary rounded-sm outline-none focus:outline-none focus:ring-1 appearance-none leading-tight '
@@ -108,11 +144,33 @@ const StudentForm = ({ updatedId, student }) => {
                         ))}
                         <td>
                             <div className='flex items-center gap-4 '>
+                                {addStudent
+                                    ?
+                                    <IconButton>     {/* yeni bir student eklenmek istendiginde gerçekleşecek onClick */}
+                                        <TiTick
+                                            size={20}
+                                            className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
+                                            onClick={addNewStudent}
+                                            aria-label='Add Student'
+                                        />
+                                    </IconButton>
+                                    :
+                                    <IconButton>     {/* var olan student güncellenmek istendiginde gerçekleşecek onClick */}
+                                        <TiTick
+                                            size={20}
+                                            className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
+                                            onClick={() => updateEditForm(updatedId)}
+                                            aria-label='Update Student'
+                                        />
+                                    </IconButton>
+                                }
                                 <IconButton>
-                                    <TiTick size={20} className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100" onClick={() => updateEditForm(updatedId)} />
-                                </IconButton>
-                                <IconButton>
-                                    <IoClose size={20} className="text-gray-700 dark:text-gray-200 opacity-70 hover:opacity-100" onClick={() => closeEditForm(updatedId)} />
+                                    <IoClose
+                                        size={20}
+                                        className="text-gray-700 dark:text-gray-200 opacity-70 hover:opacity-100"
+                                        onClick={() => closeEditForm(updatedId)}
+                                        aria-label='Close'
+                                    />
                                 </IconButton>
                             </div>
                         </td>

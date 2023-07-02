@@ -5,7 +5,7 @@ import {
 import AllStudents from '@/components/students/all-students'
 import TitleH1 from '@/components/ui/h1'
 import Search from '@/components/students/search'
-import AddNewStudent from '@/components/students/add-new-student'
+import AddNewStudent from '@/components/students/crud/create'
 import TableBar from '@/components/students/table-bar'
 
 async function Students() {

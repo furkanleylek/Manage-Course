@@ -6,11 +6,13 @@ function ContextProvider({ children }) {
     const [allStudents, setAllStudents] = useState([])  // Alınan datayı bir state içerisinde tutarız , bu sayede delete-update-post işlemlerinde anlık degisiklikleri yansıtabiliriz 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [addStudent, setAddStudent] = useState(false) // butona tıklanıldıgında student-form işlevini çagırmak için kullanılacak
 
     const data = {
         allStudents, setAllStudents,
         email, setEmail,
-        password, setPassword
+        password, setPassword,
+        addStudent, setAddStudent
     }
 
     return (

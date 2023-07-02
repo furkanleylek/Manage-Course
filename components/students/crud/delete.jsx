@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
-import IconButton from '../ui/icon-button'
-import { useManageCourseContext } from '../context'
+import IconButton from '../../ui/icon-button'
+import { useManageCourseContext } from '../../context'
 import OutsideClickHandler from 'react-outside-click-handler'
 const Delete = ({ deletedId }) => {
 
@@ -35,7 +35,7 @@ const Delete = ({ deletedId }) => {
                     <div className="flex items-center justify-center min-h-screen ">
                         <OutsideClickHandler onOutsideClick={() => { setIsOpenDeleteModal(false) }} display="contents">
                             <div className="bg-background opacity-100 flex flex-col z-50 p-8 rounded-md ">
-                                <p className="text-secondary font-semibold text-center font-base border-b-2 py-4 mb-4">
+                                <p className="text-secondary font-semibold text-center font-base border-b border-border py-4 mb-4">
                                     Are you sure you want to delete this task?
                                 </p>
                                 <div className="text-secondaryw-full flex items-center justify-evenly">
