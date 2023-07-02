@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleH4 from '../layouts/h4'
+import TitleH4 from '../ui/h4'
 import UserProfile from './user-profile'
 import SidebarContent from './all-links'
 const Sidebar = () => {

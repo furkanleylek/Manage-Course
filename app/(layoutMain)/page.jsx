@@ -1,5 +1,5 @@
 import React from "react"
-import TitleH1 from "@/components/layouts/h1"
+import TitleH1 from "@/components/ui/h1"
 import DashboardCard from "@/components/dashboard/allDashboardCards"
 import InfoCard from "@/components/dashboard/infoCard"
 import Chart from "@/components/dashboard/chart"

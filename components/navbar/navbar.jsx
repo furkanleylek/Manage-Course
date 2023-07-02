@@ -2,7 +2,7 @@ import React from 'react'
 import { IoNotificationsOutline, IoCaretBackCircleOutline } from 'react-icons/io5'
 import ThemeToggle from '../theme-toggle'
 import Menu from './menu'
-import IconButton from '../layouts/icon-button'
+import IconButton from '../ui/icon-button'
 const Navbar = () => {
     return (
         <header className='w-full bg-bar md:rounded-tl-full shadow-sm shadow-border'>

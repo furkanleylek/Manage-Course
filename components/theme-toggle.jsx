@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { FaSun, FaMoon } from 'react-icons/fa';
-import IconButton from "./layouts/icon-button";
+import IconButton from "./ui/icon-button";
 const ThemeToggle = () => {
 
     const [mounted, setMounted] = useState(false)

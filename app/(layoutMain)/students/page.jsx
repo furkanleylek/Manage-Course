@@ -3,17 +3,18 @@ import {
     fetchAllUsers
 } from "@/services/index"
 import AllStudents from '@/components/students/all-students'
-import TableBar from '@/components/students/table-bar'
-import TitleH1 from '@/components/layouts/h1'
+import TitleH1 from '@/components/ui/h1'
 import Search from '@/components/students/search'
 import AddNewStudent from '@/components/students/add-new-student'
+import TableBar from '@/components/students/table-bar'
+
 async function Students() {
 
     const pagePromises = [
         fetchAllUsers()
     ]
 
-    const [allStudents] = await Promise.all(pagePromises)
+    const [allStudentsData] = await Promise.all(pagePromises)
     return (
         <div className='flex flex-col gap-2 py-4'>
             <div className='flex items-center justify-between mb-8'>
@@ -25,7 +26,7 @@ async function Students() {
                     <AddNewStudent />
                 </div>
             </div>
-            <AllStudents allStudents={allStudents} />
+            <AllStudents allStudentsData={allStudentsData} />
             <TableBar />
         </div>
     )

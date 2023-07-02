@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleH1 from '@/components/layouts/h1'
+import TitleH1 from '@/components/ui/h1'
 
 const Course = () => {
     return (

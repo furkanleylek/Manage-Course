@@ -1,7 +1,6 @@
 import React from 'react'
 import { MdNavigateNext } from 'react-icons/md'
 import Link from 'next/link'
-import IconButton from '../layouts/icon-button'
 const TableBar = () => {
     return (
         <nav className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
@@ -35,14 +34,6 @@ const TableBar = () => {
                 <li>
                     <a href="#" className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">100</a>
                 </li>
-                <IconButton>
-                    <Link
-                        href='#'
-                        className='text-secondary py-1.5 px-3 border border-border rounded-r-lg'
-                    >
-                        <MdNavigateNext size={20} />
-                    </Link>
-                </IconButton>
             </ul>
         </nav>
     )

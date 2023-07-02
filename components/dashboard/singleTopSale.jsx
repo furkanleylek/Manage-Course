@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import TitleH3 from '../layouts/h3'
+import TitleH3 from '../ui/h3'
 
 const SingleTopSale = ({ name, payment, productsAmount, imageSource, rank }) => {
     return (

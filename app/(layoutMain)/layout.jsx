@@ -4,6 +4,9 @@ import classNames from 'classnames'
 import Sidebar from '@/components/sidebar/sidebar'
 import Navbar from '@/components/navbar/navbar'
 import { ThemeProvider } from '@/providers/theme-provider'
+import ContextProvider from '@/components/context'
+import Loading from './loading'
+import { Suspense } from 'react'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
@@ -22,13 +25,17 @@ export default function RootLayout({ children }) {
           attribute="class"
           enableSystem
         >
-          <Sidebar />
-          <div className='flex flex-col w-full h-full md:rounded-l-[55px] bg-background shadow-md min-h-screen '>
-            <Navbar />  {/*background rengini farklı yapabilmek için, genel container layoutdan dısarıda tanımlandı*/}
-            <div className='md:container w-full h-full mx-auto p-4 md:px-12 xl:px-24'>
-              {children}
+          <ContextProvider>
+            <Sidebar />
+            <div className='flex flex-col w-full h-full md:rounded-l-[55px] bg-background shadow-md min-h-screen '>
+              <Navbar />  {/*background rengini farklı yapabilmek için, genel container layoutdan dısarıda tanımlandı*/}
+              <Suspense fallback={<Loading />}>
+                <div className='md:container w-full h-full mx-auto p-4 md:px-12 xl:px-24'>
+                  {children}
+                </div>
+              </Suspense>
             </div>
-          </div>
+          </ContextProvider>
         </ThemeProvider>
       </body>
     </html>

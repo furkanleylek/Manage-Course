@@ -1,8 +1,8 @@
 import React from 'react'
 import LoginForm from "@/components/login/loginForm"
-import Paragraph from "@/components/layouts/paragraph"
-import TitleH1 from "@/components/layouts/h1"
-import TitleH3 from "@/components/layouts/h3"
+import Paragraph from "@/components/ui/paragraph"
+import TitleH1 from "@/components/ui/h1"
+import TitleH3 from "@/components/ui/h3"
 
 export default function LoginPage() {
     return (

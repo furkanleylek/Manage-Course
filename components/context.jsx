@@ -2,11 +2,13 @@
 import React, { createContext, useState, useContext } from 'react'
 const Context = createContext()
 
-function Provider({ children }) {
+function ContextProvider({ children }) {
+    const [allStudents, setAllStudents] = useState([])  // Alınan datayı bir state içerisinde tutarız , bu sayede delete-update-post işlemlerinde anlık degisiklikleri yansıtabiliriz 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const data = {
+        allStudents, setAllStudents,
         email, setEmail,
         password, setPassword
     }
@@ -18,6 +20,6 @@ function Provider({ children }) {
     )
 }
 
-export default Provider
+export default ContextProvider
 
 export const useManageCourseContext = () => useContext(Context)
