@@ -55,6 +55,9 @@ const StudentForm = ({ updatedId, student }) => {
                 return student.id == updatedId ? { ...student, isUpdate: false } : student
             })
         )
+    }
+
+    const closeNewStudentForm = () => {
         setAddStudent(false)                                // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
     }
 
@@ -145,33 +148,47 @@ const StudentForm = ({ updatedId, student }) => {
                         <td>
                             <div className='flex items-center gap-4 '>
                                 {addStudent
+
                                     ?
-                                    <IconButton>     {/* yeni bir student eklenmek istendiginde gerçekleşecek onClick */}
-                                        <TiTick
-                                            size={20}
-                                            className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
-                                            onClick={addNewStudent}
-                                            aria-label='Add Student'
-                                        />
-                                    </IconButton>
+                                    <>{/* yeni bir student eklenmek istendiginde gerçekleşecek onClick */}
+                                        <IconButton>
+                                            <TiTick
+                                                size={20}
+                                                className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
+                                                onClick={addNewStudent}
+                                                aria-label='Add Student'
+                                            />
+                                        </IconButton>
+                                        <IconButton>
+                                            <IoClose
+                                                size={20}
+                                                className="text-gray-700 dark:text-gray-200 opacity-70 hover:opacity-100"
+                                                onClick={() => closeNewStudentForm()}
+                                                aria-label='Close'
+                                            />
+                                        </IconButton>
+                                    </>
                                     :
-                                    <IconButton>     {/* var olan student güncellenmek istendiginde gerçekleşecek onClick */}
-                                        <TiTick
-                                            size={20}
-                                            className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
-                                            onClick={() => updateEditForm(updatedId)}
-                                            aria-label='Update Student'
-                                        />
-                                    </IconButton>
+                                    <>{/* var olan student güncellenmek istendiginde gerçekleşecek onClick */}
+                                        <IconButton>
+                                            <TiTick
+                                                size={20}
+                                                className="text-green-600 dark:text-green-300 opacity-70 hover:opacity-100"
+                                                onClick={() => updateEditForm(updatedId)}
+                                                aria-label='Update Student'
+                                            />
+                                        </IconButton>
+                                        <IconButton>
+                                            <IoClose
+                                                size={20}
+                                                className="text-gray-700 dark:text-gray-200 opacity-70 hover:opacity-100"
+                                                onClick={() => closeEditForm(updatedId)}
+                                                aria-label='Close'
+                                            />
+                                        </IconButton>
+                                    </>
                                 }
-                                <IconButton>
-                                    <IoClose
-                                        size={20}
-                                        className="text-gray-700 dark:text-gray-200 opacity-70 hover:opacity-100"
-                                        onClick={() => closeEditForm(updatedId)}
-                                        aria-label='Close'
-                                    />
-                                </IconButton>
+
                             </div>
                         </td>
                     </tr>

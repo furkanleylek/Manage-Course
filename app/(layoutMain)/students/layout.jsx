@@ -1,0 +1,23 @@
+import React from 'react'
+import Search from '@/components/students/search'
+import TitleH1 from '@/components/ui/h1'
+import TableBar from '@/components/students/table-bar'
+import AddNewStudent from '@/components/students/crud/create'
+
+export default function StudentsLayout({ children }) {      // students için bir layout yaparak , search oldugunda temanın aynı kalmasını amaclıyoruz
+    return (
+        <section className='flex flex-col gap-2 py-4'>
+            <div className='flex items-center justify-between mb-8'>
+                <TitleH1>
+                    Students List
+                </TitleH1>
+                <div className='flex gap-4 items-center'>
+                    <Search />
+                    <AddNewStudent />
+                </div>
+            </div>
+            {children}
+            <TableBar />
+        </section>
+    )
+}

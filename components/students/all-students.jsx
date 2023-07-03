@@ -11,7 +11,7 @@ const AllStudents = ({ allStudentsData }) => {
 
     useEffect(() => {
         setAllStudents(() => allStudentsData)  // with this props way we can fetch data in server 
-    }, [])
+    }, [allStudentsData])
 
     return (
         <div className='overflow-x-auto rounded-xl  '>

@@ -10,7 +10,6 @@ import { CiSettings } from 'react-icons/ci'
 import { GoHome } from 'react-icons/go'
 
 const SingleLink = ({ linkHref, linkTitle }) => {
-
     const pathName = usePathname() // change background color , when pathname is equal the linkhref
 
     // react-icons'dan alınan iconları props olarak all-links içerisinden yollarken , 'use client' ile ilgili bir sorun ortaya çıktıgından dolayı , single-link içerisinden tanımlandı . 
