@@ -4,8 +4,6 @@ import {
 } from "@/services/index"
 import AllStudents from '@/components/students/all-students'
 async function Students() {
-
-    console.log('Student Page')
     const pagePromises = [
         fetchAllUsers(10, 0)
     ]

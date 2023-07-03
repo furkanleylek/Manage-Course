@@ -7,7 +7,7 @@ import RowsPerPage from './rows-per-page'
 import { useManageCourseContext } from '@/components/context'
 const PaginationBar = () => {
 
-    const { size, page, setPage } = useManageCourseContext()
+    const { size, page, setPage, setSearch } = useManageCourseContext()
     const router = useRouter()
     const totalPages = 9
     const visiblePages = []
@@ -46,7 +46,7 @@ const PaginationBar = () => {
                                 <button
                                     key={visiblePage}
                                     className={`${visiblePage === page ? 'bg-foreground dark:bg-gray-700' : ''} border border-border p-1 px-3 rounded-sm text-xs `}
-                                    onClick={() => { setPage(visiblePage), router.push(`/students?size=${size}&page=${visiblePage}`) }}
+                                    onClick={() => { setPage(visiblePage), setSearch(''), router.push(`/students?size=${size}&page=${visiblePage}`) }}
                                 >
                                     {visiblePage}
                                 </button>

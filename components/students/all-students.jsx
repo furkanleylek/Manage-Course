@@ -8,29 +8,30 @@ import StudentForm from './student-form'
 import { useSearchParams } from 'next/navigation'
 const AllStudents = ({ allStudentsData }) => {
 
-    const { page, addStudent, allStudents, setAllStudents } = useManageCourseContext()
+    const { page, size, addStudent, allStudents, setAllStudents } = useManageCourseContext()
     const searchParams = useSearchParams()
 
     useEffect(() => {
         async function handleData() {
             try {
-                const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${page * 10}`)
+                const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${(page - 1) * 10}`)
                 const data = await res.json()
-                setAllStudents(() => data.users)
+                setAllStudents(() => data.users.slice(0, searchParams.get('size')))
                 return data.users
             } catch (error) {
                 throw new Error(error)
             }
         }
-        console.log("!searchParams.get('search'):", !searchParams.get('search'))
         if (!searchParams.get('search')) {
             handleData()
         } else if (searchParams.get('search')) {
             if (allStudentsData) {
-                setAllStudents(() => allStudentsData)  // with this props way we can fetch data in server 
+                setAllStudents(() => allStudentsData.slice(0, searchParams.get('size')))  // with this props way we can fetch data in server 
             }
         }
+
     }, [allStudentsData, searchParams.get('search')])
+
     return (
         <div className='overflow-x-auto rounded-xl  '>
             <table className='w-full text-xs text-left text-secondary'>
