@@ -1,9 +1,8 @@
 import React from 'react'
 import Search from '@/components/students/search'
 import TitleH1 from '@/components/ui/h1'
-import PaginationBar from '@/components/students/pagination-bar/pagination-bar'
 import AddNewStudent from '@/components/students/crud/create'
-
+import PaginationBar from '@/components/students/pagination-bar/pagination-bar'
 export const metadata = {
     title: 'Manage Course | Students',
     description: 'Manage course students ',

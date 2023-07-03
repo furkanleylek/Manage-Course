@@ -12,7 +12,6 @@ const Search = () => {
         e.preventDefault();
         router.push(`/students/params?size=${size}&page=${page}&search=${encodeURIComponent(search)}`);
     };
-    // router.push(`/students?size=${size}&page=${page}`); 
 
     return (
         <form

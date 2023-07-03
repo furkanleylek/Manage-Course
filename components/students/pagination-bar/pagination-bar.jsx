@@ -9,7 +9,7 @@ const PaginationBar = () => {
 
     const { size, page, setPage } = useManageCourseContext()
     const router = useRouter()
-    const totalPages = 100
+    const totalPages = 9
     const visiblePages = []
 
     const maxVisiblePages = 5;
@@ -22,7 +22,6 @@ const PaginationBar = () => {
     for (let i = startPage; i <= endPage; i++) {
         visiblePages.push(i);
     }
-    
     return (
         <nav className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
             <RowsPerPage />
@@ -42,14 +41,14 @@ const PaginationBar = () => {
 
                 <div className='flex gap-4 items-center'>
                     {
-                        visiblePages.map((page) => {
+                        visiblePages.map((visiblePage) => {
                             return (
                                 <button
-                                    key={page}
-                                    className={`${page === page ? 'bg-foreground dark:bg-gray-700' : ''} border border-border p-1 px-3 rounded-sm text-xs `}
-                                    onClick={() => { setPage(page), router.push(`/students?size=${size}&page=${page}`) }}
+                                    key={visiblePage}
+                                    className={`${visiblePage === page ? 'bg-foreground dark:bg-gray-700' : ''} border border-border p-1 px-3 rounded-sm text-xs `}
+                                    onClick={() => { setPage(visiblePage), router.push(`/students?size=${size}&page=${visiblePage}`) }}
                                 >
-                                    {page}
+                                    {visiblePage}
                                 </button>
                             )
                         })

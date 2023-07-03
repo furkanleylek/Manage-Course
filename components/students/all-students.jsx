@@ -5,17 +5,34 @@ import Delete from './crud/delete'
 import Update from './crud/update'
 import { useManageCourseContext } from '../context'
 import StudentForm from './student-form'
+import { useSearchParams } from 'next/navigation'
 const AllStudents = ({ allStudentsData }) => {
 
-    const { addStudent, allStudents, setAllStudents } = useManageCourseContext()
+    const { page, addStudent, allStudents, setAllStudents } = useManageCourseContext()
+    const searchParams = useSearchParams()
 
     useEffect(() => {
-        setAllStudents(() => allStudentsData)  // with this props way we can fetch data in server 
-    }, [allStudentsData])
-
+        async function handleData() {
+            try {
+                const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${page * 10}`)
+                const data = await res.json()
+                setAllStudents(() => data.users)
+                return data.users
+            } catch (error) {
+                throw new Error(error)
+            }
+        }
+        console.log("!searchParams.get('search'):", !searchParams.get('search'))
+        if (!searchParams.get('search')) {
+            handleData()
+        } else if (searchParams.get('search')) {
+            if (allStudentsData) {
+                setAllStudents(() => allStudentsData)  // with this props way we can fetch data in server 
+            }
+        }
+    }, [allStudentsData, searchParams.get('search')])
     return (
         <div className='overflow-x-auto rounded-xl  '>
-
             <table className='w-full text-xs text-left text-secondary'>
                 <colgroup>
                     <col style={{ width: '10%' }} />

@@ -3,20 +3,30 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { fetchSearchUsers } from '@/services'
 import AllStudents from '@/components/students/all-students'
-
-async function SearchQuery({ params, searchParams }) {
+async function SearchQuery({ params = {}, searchParams = {} }) {
     const pagePromises = [
-        fetchSearchUsers(searchParams.search)
+        fetchSearchUsers(searchParams.search),
     ]
     const router = useRouter()
     const [allSearchedData] = await Promise.all(pagePromises)
 
-    if (searchParams.q == '') {
+    if (searchParams.search.length == 0) {
         router.push('/students')
     }
 
     return (
-        <AllStudents allStudentsData={allSearchedData} />
+        <>
+            {
+                allSearchedData.length > 0
+                    ?
+                    <AllStudents allStudentsData={allSearchedData} />
+                    :
+                    <div>
+                        Aradıgınz arama sonucları bulunamadı .
+                    </div>
+            }
+
+        </>
     )
 }
 
