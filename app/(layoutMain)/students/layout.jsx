@@ -4,6 +4,11 @@ import TitleH1 from '@/components/ui/h1'
 import TableBar from '@/components/students/table-bar'
 import AddNewStudent from '@/components/students/crud/create'
 
+export const metadata = {
+    title: 'Manage Course | Students',
+    description: 'Manage course students ',
+}
+
 export default function StudentsLayout({ children }) {      // students için bir layout yaparak , search oldugunda temanın aynı kalmasını amaclıyoruz
     return (
         <section className='flex flex-col gap-2 py-4'>
