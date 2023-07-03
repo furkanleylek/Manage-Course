@@ -5,9 +5,8 @@ import { fetchSearchUsers } from '@/services'
 import AllStudents from '@/components/students/all-students'
 
 async function SearchQuery({ params, searchParams }) {
-
     const pagePromises = [
-        fetchSearchUsers(searchParams.q)
+        fetchSearchUsers(searchParams.search)
     ]
     const router = useRouter()
     const [allSearchedData] = await Promise.all(pagePromises)

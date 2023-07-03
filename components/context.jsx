@@ -7,12 +7,17 @@ function ContextProvider({ children }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [addStudent, setAddStudent] = useState(false) // butona tıklanıldıgında student-form işlevini çagırmak için kullanılacak
-
+    const [size, setSize] = useState(6)
+    const [page, setPage] = useState(1)
+    const [search, setSearch] = useState('')
     const data = {
         allStudents, setAllStudents,
         email, setEmail,
         password, setPassword,
-        addStudent, setAddStudent
+        addStudent, setAddStudent,
+        size, setSize,
+        page, setPage,
+        search, setSearch
     }
 
     return (

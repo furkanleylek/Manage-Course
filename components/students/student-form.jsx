@@ -102,7 +102,36 @@ const StudentForm = ({ updatedId, student }) => {
             },
             ...oldArray
         ])
-        setAddStudent(false)                                // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
+        setAddStudent(false)    // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
+
+
+        /*
+        try {
+            const response = await fetch('https://dummyjson.com/users/add', {    // Eğer yeni oluşturulan student'i API'ile istegi ile sunucu tarafına eklememiz gerekseydi  ;
+                method: 'POST',         
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    d: Math.random(),
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    phone: formData.phone,
+                    email: formData.email,
+                    image: formData.image,
+                    company: {
+                        name: formData.company,
+                    },
+                    isUpdate: false
+                })
+            });
+
+            const data = await response.json();
+            return data
+        } catch (error) {
+            console.error(error);
+        }
+        */
     }
 
     return (

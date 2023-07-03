@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from '@/components/students/search'
 import TitleH1 from '@/components/ui/h1'
-import TableBar from '@/components/students/table-bar'
+import PaginationBar from '@/components/students/pagination-bar/pagination-bar'
 import AddNewStudent from '@/components/students/crud/create'
 
 export const metadata = {
@@ -22,7 +22,7 @@ export default function StudentsLayout({ children }) {      // students için bi
                 </div>
             </div>
             {children}
-            <TableBar />
+            <PaginationBar />
         </section>
     )
 }

@@ -7,7 +7,7 @@ import AllStudents from '@/components/students/all-students'
 async function Students() {
 
     const pagePromises = [
-        fetchAllUsers()
+        fetchAllUsers(10, 0)
     ]
 
     const [allStudentsData] = await Promise.all(pagePromises)

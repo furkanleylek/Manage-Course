@@ -1,18 +1,18 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
-import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineSearch } from 'react-icons/ai'
 import { motion } from 'framer-motion'
+import { useManageCourseContext } from '../context'
 const Search = () => {
-    const [isFocused, setIsFocused] = useState(false);
-
+    const { size, page, search, setSearch } = useManageCourseContext()
     const router = useRouter()
 
     const handleSearch = (e) => {
         e.preventDefault();
-        const searchTerm = e.target.search.value;
-        router.push(`/students/search?q=${encodeURIComponent(searchTerm)}`);
+        router.push(`/students/params?size=${size}&page=${page}&search=${encodeURIComponent(search)}`);
     };
+    // router.push(`/students?size=${size}&page=${page}`); 
 
     return (
         <form
@@ -20,9 +20,11 @@ const Search = () => {
             className='relative'
         >
             <input
-                className={`${isFocused ? '' : ''} bg-background dark:bg-foreground border border-border italic text-secondary font-semibold py-2 px-3 w-full m-auto h-10 rounded-md focus:outline-none focus:ring-2 transition duration-200 ease-in-out`}
+                className=' bg-background dark:bg-foreground border border-border italic text-secondary font-semibold py-2 px-3 w-full m-auto h-10 rounded-md focus:outline-none focus:ring-2 transition duration-200 ease-in-out placeholder:not-italic  placeholder:font-normal '
                 type="text"
                 name="search"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search . . ."
             />
             <motion.button
