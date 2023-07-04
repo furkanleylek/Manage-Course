@@ -17,7 +17,7 @@ const AllStudents = ({ allStudentsData }) => {
             try {
                 const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${(page - 1) * 10}`)
                 const data = await res.json()
-                setAllStudents(() => data.users.slice(0, searchParams.get('size')))
+                setAllStudents(() => data.users?.slice(0, searchParams.get('size')))
                 return data.users
             } catch (error) {
                 throw new Error(error)
@@ -26,9 +26,8 @@ const AllStudents = ({ allStudentsData }) => {
         if (!searchParams.get('search')) {
             handleData()
         } else if (searchParams.get('search')) {
-            console.log("sa")
             if (allStudentsData) {
-                setAllStudents(() => allStudentsData.slice(0, searchParams.get('size')))  // with this props way we can fetch data in server 
+                setAllStudents(() => allStudentsData.slice(0, searchParams.get('size')))
             }
         }
 
