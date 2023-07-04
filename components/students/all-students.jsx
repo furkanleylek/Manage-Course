@@ -15,23 +15,23 @@ const AllStudents = ({ allStudentsData }) => {
     useEffect(() => {
         async function handleData() {
             try {
-                const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${(page - 1) * 10}`)
+                const res = await fetch(`https://dummyjson.com/users?limit=10&skip=${(page - 1) * 10}`)  // URL de ki page value değerine göre yeni API isteği gönderir .
                 const data = await res.json()
-                setAllStudents(() => data.users?.slice(0, searchParams.get('size')))
+                setAllStudents(() => data.users?.slice(0, searchParams.get('size')))                     // API isteğinden gelen data boyutunu , URL de ki size value değerine göre günceller . 
                 return data.users
             } catch (error) {
                 throw new Error(error)
             }
         }
-        if (!searchParams.get('search')) {
+        if (!searchParams.get('search')) {                             // eğer URL de search parametresi yok ise URL'deki page'e göre istek için handleData() fonksiyonunu çağırır .
             handleData()
-        } else if (searchParams.get('search')) {
-            if (allStudentsData) {
+        } else if (searchParams.get('search')) {                       // eğer URL de search parametresi var ise allStudentsData props'u [...searchQuery] içerisinden geliyordur . 
+            if (allStudentsData) {                                     // bu yüzden yeniden istek atmasını önlemek için if içeriisinde kullanırız . 
                 setAllStudents(() => allStudentsData.slice(0, searchParams.get('size')))
             }
         }
 
-    }, [searchParams.get('search'), searchParams.get('size'), searchParams.get('page')])
+    }, [searchParams.get('search'), searchParams.get('size'), searchParams.get('page')])   // URL'deki değişimlere göre yeniden API isteği atılır . 
 
     return (
         <div className='overflow-x-auto rounded-xl  '>
@@ -68,7 +68,7 @@ const AllStudents = ({ allStudentsData }) => {
                 <tbody className='w-full '>
                     {allStudents.map((student) => (
                         <React.Fragment key={student.id}>
-                            {!student.isUpdate ? (
+                            {!student.isUpdate ? (    // update componenti tarafından degistirilen , isUpdate ' i kontrol eder . Eğer true ise tablo içerisinde edit formu çagırılır . 
                                 <tr className='border-b-[1px] border-border'>
                                     <td className='py-4'>
                                         <Image

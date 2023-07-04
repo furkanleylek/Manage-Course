@@ -27,7 +27,7 @@ const PaginationBar = () => {
             <RowsPerPage />
             <div className='flex items-center gap-4 '>
                 <Link
-                    href={`/students?size=${size}&page=${page - 1}`}
+                    href={`/students?size=${size}&page=${page - 1}`} // arrow iconlar ile , URL' de Link ile yönlendirme yapar .
                     passHref
                 >
                     <button
@@ -45,8 +45,8 @@ const PaginationBar = () => {
                             return (
                                 <button
                                     key={visiblePage}
-                                    className={`${visiblePage === page ? 'bg-foreground dark:bg-gray-700' : ''} border border-border p-1 px-3 rounded-sm text-xs `}
-                                    onClick={() => { setPage(visiblePage), setSearch(''), router.push(`/students?size=${size}&page=${visiblePage}`) }}
+                                    className={`${visiblePage === page ? 'bg-foreground dark:bg-gray-700' : ''} border border-border p-1 px-3 rounded-sm text-xs `} // eğer URL'deki değer ile 5 adet butondan birisi eşleşiyorsa background rengi degisir . 
+                                    onClick={() => { setPage(visiblePage), setSearch(''), router.push(`/students?size=${size}&page=${visiblePage}`) }}  // eğer butona tıklanılırsa , tıklanılan değer URL'deki değer olur .
                                 >
                                     {visiblePage}
                                 </button>
@@ -55,7 +55,7 @@ const PaginationBar = () => {
                     }
                 </div>
                 <Link
-                    href={`/students?size=${size}&page=${page + 1}`}
+                    href={`/students?size=${size}&page=${page + 1}`} // arrow iconlar ile , URL' de Link ile yönlendirme yapar . 
                     passHref
                 >
                     <button

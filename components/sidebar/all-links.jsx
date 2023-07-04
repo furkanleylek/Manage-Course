@@ -37,11 +37,13 @@ const SidebarContent = () => {
             <nav className='flex flex-col items-start gap-3 w-full'>
                 {
                     contentLinks.map((element, index) => {
-                        return <SingleLink
-                            key={index}
-                            linkHref={element.linkHref}
-                            linkTitle={element.linkTitle}
-                        />
+                        return (
+                            <SingleLink
+                                key={index}
+                                linkHref={element.linkHref}
+                                linkTitle={element.linkTitle}
+                            />
+                        )
                     })
                 }
             </nav>

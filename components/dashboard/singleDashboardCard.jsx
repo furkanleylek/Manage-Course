@@ -4,8 +4,6 @@ import { HiMiniArrowDownLeft, HiMiniArrowUpRight } from 'react-icons/hi2'
 const SingleDashboardCard = ({ title, numberData, increase, increaseAmount, Icon }) => {
     return (
         <div className="flex items-center text-secondary justify-between border-[1px] border-border py-4 px-6 rounded-[20px] shadow-md ">
-
-
             <div className='flex flex-col gap-4'>
                 <h5>
                     {title}

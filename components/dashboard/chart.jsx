@@ -60,11 +60,6 @@ function Chart() {
         ],
     };
     return (
-        // <div className='w-full h-full border border-border p-4 rounded-[20px] shadow-md'>
-        //     <div className='w-full h-full max-h-[400px]'>
-        //         <Bar options={options} data={data} />
-        //     </div>
-        // </div>
         <div className='w-full h-full  border border-border p-4 rounded-[20px] shadow-md'>
             <div className='w-full h-full max-h-[400px] '>
                 <Bar options={options} data={data} />

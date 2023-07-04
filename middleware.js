@@ -34,6 +34,11 @@ export async function middleware(request) {
 export const config = {
     matcher: [
         '/',
+        '/students',
+        '/course',
+        '/payment',
+        '/report',
+        '/settings',
         '/login'
     ]
 }

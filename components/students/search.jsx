@@ -8,8 +8,8 @@ const Search = () => {
     const { size, page, search, setSearch } = useManageCourseContext()
     const router = useRouter()
 
-    const handleSearch = (e) => {
-        e.preventDefault();
+    const handleSearch = (e) => {            // Search inputudan gelen girdiye göre yönlendirme işlemi yapılır . 
+        e.preventDefault();                  // yönlendirme işlemi yapılırken /students?size.... yerine /students/params?size kullanılmasının sebebi , [...searchQuery] sayfasına dynamic olarak girmesi gerektigindendir .
         router.push(`/students/params?size=${size}&page=${page}&search=${encodeURIComponent(search)}`);
     };
 

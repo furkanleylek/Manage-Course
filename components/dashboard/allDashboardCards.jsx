@@ -42,7 +42,7 @@ const DashboardCard = () => {
             className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6'
         >
             {
-                dashboardData.map((element, index) => {
+                dashboardData.map((element, index) => {  // array içerisindeki elemanları <SingleDasboardCard/> içerisine yollar
                     return (
                         <SingleDashboardCard
                             key={index}
