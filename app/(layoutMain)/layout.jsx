@@ -7,6 +7,8 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import ContextProvider from '@/components/context'
 import Loading from './loading'
 import { Suspense } from 'react'
+import ToasterContext from '@/providers/toaster-context'
+
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
         >
           <ContextProvider>
             <Sidebar />
+            <ToasterContext />
             <div className='flex flex-col w-full h-full md:rounded-l-[55px] bg-background shadow-md min-h-screen '>
               <Navbar />  {/*background rengini farklı yapabilmek için, genel container layoutdan dısarıda tanımlandı*/}
               <Suspense fallback={<Loading />}>

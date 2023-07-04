@@ -5,6 +5,7 @@ import Image from 'next/image'
 import IconButton from '../ui/icon-button'
 import { TiTick } from 'react-icons/ti'
 import { IoClose } from 'react-icons/io5'
+import { toast } from 'react-hot-toast'
 const StudentForm = ({ updatedId, student }) => {
 
     const { allStudents, setAllStudents, addStudent, setAddStudent } = useManageCourseContext()
@@ -84,6 +85,7 @@ const StudentForm = ({ updatedId, student }) => {
                 )
             })
         )
+        toast.success('Updated !')
     }
 
     const addNewStudent = () => {                           // Mevcut student'ların tutuldugu state'e yeni bir student ekliyoruz . 
@@ -103,7 +105,7 @@ const StudentForm = ({ updatedId, student }) => {
             ...oldArray
         ])
         setAddStudent(false)    // addStudent değerini false yaparak , yeni student ekleme formunu kapatıyoruz . 
-
+        toast.success('New Student Added !')
 
         /*
         try {

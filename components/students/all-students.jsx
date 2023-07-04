@@ -36,7 +36,7 @@ const AllStudents = ({ allStudentsData }) => {
 
     return (
         <div className='overflow-x-auto rounded-xl  '>
-            <table className='w-full text-xs text-left text-secondary overflow-x-auto'>
+            <table className='w-full text-xs text-left text-secondary'>
                 <colgroup>
                     <col style={{ width: '10%' }} />
                     <col style={{ width: '13%' }} />
@@ -47,14 +47,14 @@ const AllStudents = ({ allStudentsData }) => {
                     <col style={{ width: '13%' }} />
                 </colgroup>
                 <thead className='text-xs text-primary uppercase bg-foreground'>
-                    <tr>
+                    <tr >
                         <th scope='col' className='py-4' ></th>
                         <th scope='col' className='py-4' >Name</th>
                         <th scope='col' className='py-4' >Lastname</th>
                         <th scope='col' className='py-4' >Phone</th>
                         <th scope='col' className='py-4' >Email</th>
                         <th scope='col' className='py-4' >Company</th>
-                        <th scope="col" className="px-4 py-3">
+                        <th scope="col" className="">
                             <span className="sr-only">Actions</span>
                         </th>
                     </tr>

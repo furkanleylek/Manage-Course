@@ -4,6 +4,7 @@ import { AiOutlineDelete } from 'react-icons/ai'
 import IconButton from '../../ui/icon-button'
 import { useManageCourseContext } from '../../context'
 import OutsideClickHandler from 'react-outside-click-handler'
+import { toast } from 'react-hot-toast'
 const Delete = ({ deletedId }) => {
 
     const { setAllStudents } = useManageCourseContext()
@@ -13,6 +14,7 @@ const Delete = ({ deletedId }) => {
         setAllStudents((student) => {                            // change in state
             return student.filter((e) => e.id !== deletedId)     // deletedId ile eşleşmeyen idleri geri döndürür dolayısıyla deletedId silinir
         })
+        toast.success('Student deleted !')
 
         /*
          fetch('https://dummyjson.com/users/1', {      // change in database , if we have
