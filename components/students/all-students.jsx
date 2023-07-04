@@ -30,7 +30,7 @@ const AllStudents = ({ allStudentsData }) => {
             }
         }
 
-    }, [allStudentsData, searchParams.get('search')])
+    }, [allStudentsData, searchParams.get('search'), searchParams.get('size')])
 
     return (
         <div className='overflow-x-auto rounded-xl  '>
