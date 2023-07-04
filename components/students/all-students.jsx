@@ -6,6 +6,7 @@ import Update from './crud/update'
 import { useManageCourseContext } from '../context'
 import StudentForm from './student-form'
 import { useSearchParams } from 'next/navigation'
+
 const AllStudents = ({ allStudentsData }) => {
 
     const { page, size, addStudent, allStudents, setAllStudents } = useManageCourseContext()
@@ -25,12 +26,13 @@ const AllStudents = ({ allStudentsData }) => {
         if (!searchParams.get('search')) {
             handleData()
         } else if (searchParams.get('search')) {
+            console.log("sa")
             if (allStudentsData) {
                 setAllStudents(() => allStudentsData.slice(0, searchParams.get('size')))  // with this props way we can fetch data in server 
             }
         }
 
-    }, [allStudentsData, searchParams.get('search'), searchParams.get('size')])
+    }, [searchParams.get('search'), searchParams.get('size'), searchParams.get('page')])
 
     return (
         <div className='overflow-x-auto rounded-xl  '>
@@ -105,4 +107,4 @@ const AllStudents = ({ allStudentsData }) => {
     )
 }
 
-export default AllStudents
+export default AllStudents;

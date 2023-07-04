@@ -67,8 +67,6 @@ const PaginationBar = () => {
                     </button>
                 </Link>
             </div>
-
-            <span>{page}</span>
         </nav>
     )
 }

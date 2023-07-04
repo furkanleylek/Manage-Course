@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useManageCourseContext } from '@/components/context'
+import OutsideClickHandler from 'react-outside-click-handler'
 const RowsPerPage = () => {
 
     const [isOpenModal, setIsOpenModal] = useState(false)
@@ -14,38 +15,30 @@ const RowsPerPage = () => {
         }
     }, [size]);
 
-    const options = [6, 8, 10]
-
     const openModal = () => {
         setIsOpenModal(true)
     }
 
-    const closeModal = () => {
+    const handleOptionSelect = (option) => {
+        setSize(option)
         setIsOpenModal(false)
     }
 
-    const handleOptionSelect = (option) => {
-        setSize(option)
-        // onSelectRowsPerPage(option)
-        closeModal()
-    }
-
     return (
-        <div>
-
-            <button
-                onClick={openModal}
-            >
+        <div className="relative text-sm text-secondary">
+            <button onClick={openModal} className="border border-border font-semibold  py-2 px-4 rounded">
                 Rows per Page
             </button>
-            {
-                isOpenModal && (
-                    <div className="modal">
-                        <ul className="options-list">
-                            {options.map((option) => (
+            {isOpenModal && (
+                <OutsideClickHandler
+                    onOutsideClick={() => setIsOpenModal(false)}>
+                    <div className="absolute top-[-130px] bg-background z-10 right-0 w-24 border border-border rounded shadow">
+                        <ul className="">
+                            {[6, 8, 10].map((option) => (
                                 <li
                                     key={option}
-                                    className={size === option ? 'selected' : ''}
+                                    className={`cursor-pointer border-b border-border p-2 ${size === option ? 'bg-foreground' : ''
+                                        }`}
                                     onClick={() => handleOptionSelect(option)}
                                 >
                                     {option}
@@ -53,8 +46,8 @@ const RowsPerPage = () => {
                             ))}
                         </ul>
                     </div>
-                )
-            }
+                </OutsideClickHandler>
+            )}
         </div>
     )
 }
