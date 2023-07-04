@@ -10,8 +10,8 @@ export const metadata = {
 
 export default function StudentsLayout({ children }) {      // students için bir layout yaparak , search oldugunda temanın aynı kalmasını amaclıyoruz
     return (
-        <section className='flex flex-col gap-2 py-4'>
-            <div className='flex items-center justify-between mb-8'>
+        <section className='flex flex-col gap-2 py-4 overflow-x-hidden'>
+            <div className='flex flex-col gap-8 md:flex-row md:items-center justify-between mb-8'>
                 <TitleH1>
                     Students List
                 </TitleH1>

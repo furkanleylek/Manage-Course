@@ -8,7 +8,7 @@ const AddNewStudent = () => {
 
     return (
         <button
-            className='bg-third text-white py-3 px-5 rounded-md text-xs opacity-80 hover:opacity-100'
+            className='bg-third text-white py-2 px-[6px] md:py-3 md:px-5 rounded-md text-xs opacity-80 hover:opacity-100'
             onClick={() => setAddStudent(true)}
         >
             ADD NEW STUDENT

@@ -12,7 +12,7 @@ async function SearchQuery({ params = {}, searchParams = {} }) {
     const [allSearchedData] = await Promise.all(pagePromises)
 
     if (searchParams.search.length == 0) {
-        router.push('/students')
+        router.push('/students?size=10&page=1')
     }
 
     return (

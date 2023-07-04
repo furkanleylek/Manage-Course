@@ -36,7 +36,7 @@ const AllStudents = ({ allStudentsData }) => {
 
     return (
         <div className='overflow-x-auto rounded-xl  '>
-            <table className='w-full text-xs text-left text-secondary'>
+            <table className='w-full text-xs text-left text-secondary overflow-x-auto'>
                 <colgroup>
                     <col style={{ width: '10%' }} />
                     <col style={{ width: '13%' }} />
