@@ -25,6 +25,12 @@ export default function LoginPage() {
                     </Paragraph>
                 </div>
                 <LoginForm />
+                <div className='flex flex-col gap-2 text-xs font-[500] text-gray-600'>
+                    <span>                   Try as email :  test@gmail.com
+                    </span>
+                    <span>                   password : 123
+                    </span>
+                </div>
                 <Paragraph>
                     Forgot your password ? <span className='text-third font-semibold opacity-70 hover:opacity-100 cursor-pointer hover:underline hover:underline-offset-2'>Reset Password</span>
                 </Paragraph>
